@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>El Muse Cule — El Barça, cada día, en tu oído</title>
+  <meta name="description" content="Boletín diario de noticias del FC Barcelona en audio, enviado a tu correo cada día a las 19:00. 5 a 7 minutos con todo lo del Barça. Gratis 30 días.">
+  <meta property="og:title" content="El Muse Cule — El Barça, cada día, en tu oído">
+  <meta property="og:description" content="Noticias del Barça en audio, cada día a las 19:00 en tu correo. 5–7 minutos. Gratis 30 días.">
+  <meta property="og:image" content="img/camp-nou.jpg">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23004D98'/%3E%3Crect x='16' width='16' height='32' rx='0' fill='%23A50044'/%3E%3Ccircle cx='16' cy='16' r='6' fill='none' stroke='white' stroke-width='2'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ============ HEADER ============ -->
+  <header class="site-header" id="top">
+    <div class="container header-inner">
+      <a href="#top" class="brand" aria-label="El Muse Cule — inicio">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" width="30" height="30"><rect width="32" height="32" rx="8" fill="#004D98"/><path d="M16 0h16v32H16z" fill="#A50044"/><circle cx="16" cy="16" r="6" fill="none" stroke="#fff" stroke-width="2"/></svg>
+        </span>
+        <span class="brand-name">EL MUSE <span class="brand-name-accent">CULE</span></span>
+      </a>
+      <nav class="main-nav" aria-label="Navegación principal">
+        <a href="#incluye">Qué incluye</a>
+        <a href="#episodios">Episodios</a>
+        <a href="#precio">Precio</a>
+        <a href="#faq">Preguntas</a>
+      </nav>
+      <a href="#registro" class="btn btn-small">Escuchar gratis</a>
+    </div>
+  </header>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">
+          <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+          Boletín diario del FC Barcelona
+        </p>
+        <h1>El Barça, cada día, <span class="h1-accent">en tu oído</span></h1>
+        <p class="hero-sub">De 5 a 7 minutos de audio con todo lo del Barça: noticias verificadas, rumores como rumores y la previa de cada partido. Cada día a las 19:00, directo en tu correo.</p>
+
+        <!-- Reproductor de muestra -->
+        <div class="player-card" id="player-card">
+          <div class="player-top">
+            <button class="play-btn" id="hero-play" type="button" aria-label="Reproducir muestra de audio">
+              <svg class="icon-play" viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg>
+              <svg class="icon-pause" viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true" style="display:none"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
+            </button>
+            <div class="player-meta">
+              <p class="player-title">Muestra · Episodio del lunes 9 de noviembre</p>
+              <p class="player-desc">Cubarsí, Golden Boy 2026 · La FIFA visita el Camp Nou · Femenino ante el Arsenal</p>
+            </div>
+            <span class="player-time"><span id="time-current">0:00</span> / <span id="time-total">0:35</span></span>
+          </div>
+          <div class="progress" id="progress" role="slider" aria-label="Progreso del audio" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" tabindex="0">
+            <div class="progress-fill" id="progress-fill"></div>
+          </div>
+          <audio id="audio-sample" src="audio/muestra-episodio.mp3" preload="metadata"></audio>
+        </div>
+
+        <!-- Formulario de registro -->
+        <form class="signup-form" id="registro" novalidate>
+          <label class="sr-only" for="email">Tu correo electrónico</label>
+          <input type="email" id="email" name="email" placeholder="tu@correo.com" autocomplete="email" required>
+          <button type="submit" class="btn btn-primary">Quiero escucharlo gratis</button>
+          <p class="form-error" id="form-error" role="alert" hidden>Escribe un correo válido para suscribirte.</p>
+        </form>
+        <div class="signup-success" id="signup-success" hidden>
+          <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#2ECC71" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M8 12.5l2.7 2.7L16.5 9"/></svg>
+          <div>
+            <p class="success-title">¡Listo! Ya eres parte de El Muse Cule.</p>
+            <p class="success-text">Tu primer episodio llega hoy a las 19:00. Revisa tu correo y la carpeta de spam por si acaso.</p>
+          </div>
+        </div>
+        <p class="hero-note">Gratis 30 días · Sin spam · Cancela cuando quieras</p>
+      </div>
+
+      <div class="hero-media">
+        <figure class="hero-figure">
+          <img src="img/camp-nou.jpg" alt="Spotify Camp Nou, el estadio del FC Barcelona" width="1280" height="1700" loading="eager">
+          <figcaption>
+            <span class="fig-live"><span class="dot" aria-hidden="true"></span>Spotify Camp Nou</span>
+            <span class="fig-text">La casa del Barça, cada día en tu oído</span>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <!-- Franja de datos -->
+    <div class="container stats-strip" aria-label="Datos del boletín">
+      <div class="stat"><span class="stat-num">5–7 min</span><span class="stat-label">por episodio</span></div>
+      <div class="stat"><span class="stat-num">19:00</span><span class="stat-label">hora de Cuba, cada día</span></div>
+      <div class="stat"><span class="stat-num">30 días</span><span class="stat-label">gratis al lanzar</span></div>
+      <div class="stat"><span class="stat-num">100% Barça</span><span class="stat-label">nada más, nada menos</span></div>
+    </div>
+  </section>
+
+  <!-- ============ QUÉ INCLUYE ============ -->
+  <section class="section" id="incluye">
+    <div class="container">
+      <p class="section-eyebrow">Qué incluye</p>
+      <h2>Todo el Barça, sin humo y sin perder tiempo</h2>
+      <p class="section-lead">Un solo correo al día con lo que de verdad importa. Nada de rellenar con noticias viejas.</p>
+      <div class="features-grid">
+        <article class="feature-card">
+          <span class="feature-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14v-2a8 8 0 0 1 16 0v2"/><rect x="3" y="14" width="4" height="6" rx="1.5"/><rect x="17" y="14" width="4" height="6" rx="1.5"/></svg>
+          </span>
+          <h3>Audio diario de 5 a 7 minutos</h3>
+          <p>El resumen completo del día narrado con voz clara. Lo escuchas mientras haces otra cosa: en el trabajo, en el bus o en casa.</p>
+        </article>
+        <article class="feature-card">
+          <span class="feature-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8.5-7 10-4-1.5-7-5.5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg>
+          </span>
+          <h3>Noticias verificadas, con fuentes</h3>
+          <p>Cada noticia se contrasta en prensa seria y se citan las fuentes al final del correo. Lo que no está confirmado, no se vende como hecho.</p>
+        </article>
+        <article class="feature-card">
+          <span class="feature-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-8 8H4l2-3a8 8 0 1 1 15-5z"/><path d="M8.5 12h.01M12 12h.01M15.5 12h.01"/></svg>
+          </span>
+          <h3>Los rumores, siempre como rumores</h3>
+          <p>Fichajes, salidas y mercado: te contamos lo que se dice y quién lo dice, sin disfrazarlo de noticia cerrada.</p>
+        </article>
+        <article class="feature-card">
+          <span class="feature-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/><circle cx="18.5" cy="17.5" r="3.5" fill="#0D1426"/><path d="M18.5 15.8v1.7M18.5 18.9v.2"/></svg>
+          </span>
+          <h3>En tu correo, sin spam</h3>
+          <p>Un correo al día, a las 19:00. Sin publicidad de terceros, sin cadenas y sin vender tu correo a nadie.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ EPISODIOS ============ -->
+  <section class="section section-alt" id="episodios">
+    <div class="container">
+      <p class="section-eyebrow">Escucha un episodio</p>
+      <h2>Así suena El Muse Cule</h2>
+      <p class="section-lead">Muestra de audio · Episodio del lunes 9 de noviembre de 2026. Toca play en cualquiera de las tarjetas.</p>
+      <div class="episodes-grid">
+        <article class="episode-card">
+          <div class="episode-img">
+            <img src="img/cubarsi.jpg" alt="Pau Cubarsí con la selección de España" width="1280" height="853" loading="lazy">
+            <span class="episode-tag tag-today">Hoy</span>
+          </div>
+          <div class="episode-body">
+            <p class="episode-date">Lunes 9 de noviembre · 6 min</p>
+            <h3>Cubarsí, Golden Boy 2026</h3>
+            <p class="episode-desc">El central arrasa en las votaciones del Golden Boy y entra en el once ideal mundial de FIFPro. Además: la FIFA visita el Camp Nou.</p>
+            <button class="btn btn-ghost episode-play" type="button" data-play>
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg>
+              Escuchar muestra
+            </button>
+          </div>
+        </article>
+        <article class="episode-card">
+          <div class="episode-img">
+            <img src="img/lamine.jpg" alt="Lamine Yamal con la selección de España" width="1280" height="853" loading="lazy">
+            <span class="episode-tag">Ayer</span>
+          </div>
+          <div class="episode-body">
+            <p class="episode-date">Domingo 8 de noviembre · 7 min</p>
+            <h3>Remontada en el Metropolitano</h3>
+            <p class="episode-desc">Doblete de Fermín en su partido 100 en Liga y victoria 1-2 ante el Atlético. Lamine asiste y el Barça se va al parón como líder.</p>
+            <button class="btn btn-ghost episode-play" type="button" data-play>
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg>
+              Escuchar muestra
+            </button>
+          </div>
+        </article>
+        <article class="episode-card">
+          <div class="episode-img">
+            <img src="img/femeni.jpg" alt="Jugadoras del Barça Femenino en partido de Champions" width="1280" height="853" loading="lazy">
+            <span class="episode-tag tag-soon">Próximo · Jue 12 nov</span>
+          </div>
+          <div class="episode-body">
+            <p class="episode-date">Jueves 12 de noviembre · 6 min</p>
+            <h3>Femenino: la revancha ante el Arsenal</h3>
+            <p class="episode-desc">El Barça Femenino recibe al Arsenal en el Camp Nou, la reedición de la final de la Champions del año pasado.</p>
+            <a class="btn btn-ghost" href="#registro">
+              Quiero escucharlo
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CÓMO FUNCIONA ============ -->
+  <section class="section" id="como-funciona">
+    <div class="container">
+      <p class="section-eyebrow">Cómo funciona</p>
+      <h2>Tres pasos y ya eres culé informado</h2>
+      <div class="steps-grid">
+        <article class="step-card">
+          <span class="step-num" aria-hidden="true">01</span>
+          <span class="step-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+          </span>
+          <h3>Deja tu correo</h3>
+          <p>Escribe tu correo arriba y listo. No hace falta instalar ninguna app ni crear cuentas raras.</p>
+        </article>
+        <article class="step-card">
+          <span class="step-num" aria-hidden="true">02</span>
+          <span class="step-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+          </span>
+          <h3>Cada día a las 19:00 llega tu episodio</h3>
+          <p>El correo trae el botón Escuchar, el resumen escrito y las fuentes de cada noticia.</p>
+        </article>
+        <article class="step-card">
+          <span class="step-num" aria-hidden="true">03</span>
+          <span class="step-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M10 8.5v7l6-3.5z"/></svg>
+          </span>
+          <h3>Toca play y escucha donde quieras</h3>
+          <p>Se escucha en el navegador del teléfono o la computadora. También puedes descargar el audio.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PRECIO ============ -->
+  <section class="section section-alt" id="precio">
+    <div class="container price-wrap">
+      <p class="section-eyebrow">Precio</p>
+      <h2>Empieza gratis, quédate si te gusta</h2>
+      <p class="section-lead">Sin tarjeta para probar. Sin permanencia. Cancela cuando quieras.</p>
+      <article class="price-card">
+        <span class="price-badge">Lanzamiento</span>
+        <p class="price-free">Gratis 30 días</p>
+        <p class="price-then">Después, <strong>$2,99 / mes</strong></p>
+        <ul class="price-list">
+          <li><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l5 5 10-11"/></svg>Audio diario del Barça, 5 a 7 minutos</li>
+          <li><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l5 5 10-11"/></svg>Resumen escrito y fuentes en cada correo</li>
+          <li><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l5 5 10-11"/></svg>Episodios anteriores siempre disponibles</li>
+          <li><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l5 5 10-11"/></svg>7 días gratis al activar el plan de pago</li>
+          <li><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l5 5 10-11"/></svg>Cancela cuando quieras, sin preguntas</li>
+        </ul>
+        <a href="#registro" class="btn btn-primary btn-block">Empezar mis 30 días gratis</a>
+        <p class="price-note">El cobro del plan de pago se activa al terminar el periodo gratis. Te avisamos antes por correo.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section class="section" id="faq">
+    <div class="container faq-wrap">
+      <p class="section-eyebrow">Preguntas frecuentes</p>
+      <h2>Lo que nos preguntan los culés</h2>
+      <div class="faq-list">
+        <details class="faq-item" open>
+          <summary>¿Qué es El Muse Cule?<span class="faq-chevron" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></summary>
+          <p>Un boletín diario de noticias del FC Barcelona en audio, enviado por correo. Cada día a las 19:00 recibes un episodio de 5 a 7 minutos con todo lo del Barça: resultados, fichajes, lesionados, cantera y femenino.</p>
+        </details>
+        <details class="faq-item">
+          <summary>¿Cómo se escucha el audio?<span class="faq-chevron" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></summary>
+          <p>El correo trae un botón Escuchar que abre el reproductor en tu navegador. No hace falta instalar ninguna app ni descargar nada, aunque también puedes descargar el MP3 si quieres guardarlo.</p>
+        </details>
+        <details class="faq-item">
+          <summary>¿Qué pasa los días sin noticias?<span class="faq-chevron" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></summary>
+          <p>Recibes un correo breve avisando que no hay novedades. No rellenamos con humo: si no hay nada que contar, lo decimos y listo.</p>
+        </details>
+        <details class="faq-item">
+          <summary>¿Cuánto cuesta y cómo cancelo?<span class="faq-chevron" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></summary>
+          <p>Los primeros 30 días son gratis. Después, el plan cuesta $2,99 al mes, con 7 días gratis al activarlo. Puedes cancelar cuando quieras con un enlace en cada correo, sin permanencia ni preguntas.</p>
+        </details>
+        <details class="faq-item">
+          <summary>¿Es un producto oficial del FC Barcelona?<span class="faq-chevron" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></summary>
+          <p>No. El Muse Cule es un proyecto independiente de aficionados, sin afiliación ni respaldo del FC Barcelona. Las noticias se narran con voz propia y siempre se citan las fuentes.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CTA FINAL ============ -->
+  <section class="cta-final">
+    <div class="container cta-final-inner">
+      <h2>El Barça no espera. Tú tampoco.</h2>
+      <p>Únete gratis y escucha hoy mismo el episodio del día.</p>
+      <a href="#registro" class="btn btn-primary btn-large">Quiero escucharlo gratis</a>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <span class="brand-name">EL MUSE <span class="brand-name-accent">CULE</span></span>
+        <p>El Barça, cada día, en tu oído. Boletín diario de noticias del FC Barcelona en audio por correo.</p>
+        <p class="footer-social">
+          <a href="https://www.instagram.com/elmusecule/" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="0.8" fill="currentColor" stroke="none"/></svg>
+            @elmusecule
+          </a>
+        </p>
+      </div>
+      <nav class="footer-nav" aria-label="Enlaces del pie de página">
+        <p class="footer-heading">Secciones</p>
+        <a href="#incluye">Qué incluye</a>
+        <a href="#episodios">Episodios</a>
+        <a href="#como-funciona">Cómo funciona</a>
+        <a href="#precio">Precio</a>
+        <a href="#faq">Preguntas</a>
+      </nav>
+      <div class="footer-legal">
+        <p class="footer-heading">Aviso legal</p>
+        <p>El Muse Cule es un proyecto independiente de aficionados y no está afiliado, patrocinado ni respaldado por el FC Barcelona. Las noticias se narran con voz propia y se citan las fuentes originales. Las marcas y nombres mencionados pertenecen a sus respectivos propietarios.</p>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>© <span id="year">2026</span> El Muse Cule. Todos los derechos reservados.</p>
+      <p class="credits">Fotos: Wikimedia Commons (CC BY-SA 4.0) — <a href="https://commons.wikimedia.org/wiki/File:Camp_Nou_under_renovation_-_Sept._21,_2025.jpg" target="_blank" rel="noopener">Camp Nou</a> · <a href="https://commons.wikimedia.org/wiki/File:Pau_Cubarsi_Argentina_v_Spain_19_July_2026-142.jpg" target="_blank" rel="noopener">Cubarsí</a> · <a href="https://commons.wikimedia.org/wiki/File:Lamine_Yamal_Argentina_v_Spain_19_July_2026-133.jpg" target="_blank" rel="noopener">Lamine Yamal</a> · <a href="https://commons.wikimedia.org/wiki/File:Brann_-_Bar%C3%A7a_Femen%C3%AD_CG3A5882.jpg" target="_blank" rel="noopener">Barça Femenino</a></p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
